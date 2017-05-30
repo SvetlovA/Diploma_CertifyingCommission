@@ -1,0 +1,10 @@
+C:\Users\Artem_Svetlov\Desktop\CertifyingCommission\CertifyingCommissionEntities\bin\Debug\CertifyingCommissionEntities.dll.config
+C:\Users\Artem_Svetlov\Desktop\CertifyingCommission\CertifyingCommissionEntities\bin\Debug\CertifyingCommissionEntities.dll
+C:\Users\Artem_Svetlov\Desktop\CertifyingCommission\CertifyingCommissionEntities\bin\Debug\CertifyingCommissionEntities.pdb
+C:\Users\Artem_Svetlov\Desktop\CertifyingCommission\CertifyingCommissionEntities\bin\Debug\EntityFramework.dll
+C:\Users\Artem_Svetlov\Desktop\CertifyingCommission\CertifyingCommissionEntities\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Artem_Svetlov\Desktop\CertifyingCommission\CertifyingCommissionEntities\bin\Debug\EntityFramework.xml
+C:\Users\Artem_Svetlov\Desktop\CertifyingCommission\CertifyingCommissionEntities\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Artem_Svetlov\Desktop\CertifyingCommission\CertifyingCommissionEntities\obj\Debug\CertifyingCommissionEntities.csprojResolveAssemblyReference.cache
+C:\Users\Artem_Svetlov\Desktop\CertifyingCommission\CertifyingCommissionEntities\obj\Debug\CertifyingCommissionEntities.dll
+C:\Users\Artem_Svetlov\Desktop\CertifyingCommission\CertifyingCommissionEntities\obj\Debug\CertifyingCommissionEntities.pdb
