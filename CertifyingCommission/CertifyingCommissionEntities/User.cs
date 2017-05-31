@@ -9,6 +9,8 @@
 		public string Name { get; set; }
 		public string Patronymic { get; set; }
 
+		public Sault Sault { get; set; }
+
 		protected bool Equals(User other)
 		{
 			return string.Equals(Login, other.Login) && string.Equals(Surname, other.Surname) && string.Equals(Name, other.Name) && string.Equals(Patronymic, other.Patronymic);

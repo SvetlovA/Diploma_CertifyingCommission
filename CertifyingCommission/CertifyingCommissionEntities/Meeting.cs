@@ -1,14 +1,20 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace CertifyingCommissionEntities
 {
 	public class Meeting
 	{
+		[Browsable(false)]
 		public int MeetingId { get; set; }
+		[Browsable(false)]
 		public int TeacherId { get; set; }
+		[Browsable(false)]
 		public int CommissionMemberId { get; set; }
+		[Browsable(false)]
 		public int SecretaryId { get; set; }
 		public DateTime MeetingDateTime { get; set; }
+		public MeetingStatus MeetingStatus { get; set; }
 
 		public Secretary Secretary { get; set; }
 		public CommissionMember CommissionMember { get; set; }

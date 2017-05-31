@@ -1,5 +1,7 @@
-﻿using System.Configuration;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Configuration;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure.Annotations;
 
 namespace CertifyingCommissionEntities
 {
@@ -11,12 +13,15 @@ namespace CertifyingCommissionEntities
 		public DbSet<CommissionMember> CommisionMembers { get; set; }
 		public DbSet<Meeting> Meetings { get; set; }
 		public DbSet<Subject> Subjects { get; set; }
+		public DbSet<Sault> Saults { get; set; }
 
 		public CertifyingCommissionContext() : this(ConfigurationManager.ConnectionStrings["CertifyingCommision"].ConnectionString)
 		{ }
 
 		public CertifyingCommissionContext(string connectionString) : base(connectionString)
-		{ }
+		{
+			Database.SetInitializer(new DropCreateDatabaseIfModelChanges<CertifyingCommissionContext>());
+		}
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
@@ -47,6 +52,21 @@ namespace CertifyingCommissionEntities
 				.WithMany(s => s.Teachers)
 				.HasForeignKey(t => t.SubjectId)
 				.WillCascadeOnDelete();
+
+			modelBuilder.Entity<Sault>()
+				.HasKey(s => s.UserId);
+
+			modelBuilder.Entity<User>()
+				.HasRequired(u => u.Sault)
+				.WithRequiredPrincipal(s => s.User)
+				.WillCascadeOnDelete();
+
+			modelBuilder.Entity<User>()
+				.Property(u => u.Login)
+				.IsRequired()
+				.HasMaxLength(50)
+				.HasColumnAnnotation(IndexAnnotation.AnnotationName,
+					new IndexAnnotation(new IndexAttribute("UK_User_Login") {IsUnique = true}));
 
 			base.OnModelCreating(modelBuilder);
 		}

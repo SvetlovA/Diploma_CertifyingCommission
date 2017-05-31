@@ -48,8 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectionCreator.cs" />
-    <Compile Include="SecretaryDataBaseDao.cs" />
-    <Compile Include="ISecretaryDao.cs" />
+    <Compile Include="CertifyingCommissionDataBaseDao.cs" />
+    <Compile Include="ICertifyingCommissionDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

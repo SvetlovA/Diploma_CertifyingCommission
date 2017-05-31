@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertifyingCommissionDal", "CertifyingCommissionDal\CertifyingCommissionDal.csproj", "{913D1CBD-F217-494D-8CF2-ED95F2565975}"
 EndProject
@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertifyingCommissionEntitie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertifyingCommisionBl", "CertifyingCommisionBl\CertifyingCommisionBl.csproj", "{34C1E31A-6FBA-49EC-B204-D63244EEFCAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertifyingCommissionBlTests", "CertifyingCommissionBlTest\CertifyingCommissionBlTests.csproj", "{6706981C-3D76-42AD-A2A4-BDB769D116FE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertifyingCommisionFormUI", "CertifyingCommisionFormUI\CertifyingCommisionFormUI.csproj", "{B7CA9E6D-F6E4-4812-966B-4CE3D49D0B70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,10 +37,10 @@ Global
 		{34C1E31A-6FBA-49EC-B204-D63244EEFCAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34C1E31A-6FBA-49EC-B204-D63244EEFCAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34C1E31A-6FBA-49EC-B204-D63244EEFCAA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6706981C-3D76-42AD-A2A4-BDB769D116FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6706981C-3D76-42AD-A2A4-BDB769D116FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6706981C-3D76-42AD-A2A4-BDB769D116FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6706981C-3D76-42AD-A2A4-BDB769D116FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7CA9E6D-F6E4-4812-966B-4CE3D49D0B70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7CA9E6D-F6E4-4812-966B-4CE3D49D0B70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7CA9E6D-F6E4-4812-966B-4CE3D49D0B70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7CA9E6D-F6E4-4812-966B-4CE3D49D0B70}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,6 +49,6 @@ Global
 		{913D1CBD-F217-494D-8CF2-ED95F2565975} = {D281616B-01E4-4E39-984C-4F39FC422987}
 		{824BD755-84BF-41D3-8EF3-7B4B60EF66C9} = {6877952A-70BF-4742-B595-070AE747DBB6}
 		{34C1E31A-6FBA-49EC-B204-D63244EEFCAA} = {67D81601-3637-4EFA-B73A-3DB47C0ED1D5}
-		{6706981C-3D76-42AD-A2A4-BDB769D116FE} = {67D81601-3637-4EFA-B73A-3DB47C0ED1D5}
+		{B7CA9E6D-F6E4-4812-966B-4CE3D49D0B70} = {F0B1B5A5-B720-4BF8-A743-7A02A693F14C}
 	EndGlobalSection
 EndGlobal
