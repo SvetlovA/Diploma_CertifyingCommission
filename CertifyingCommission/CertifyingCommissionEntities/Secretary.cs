@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace CertifyingCommissionEntities
 {
@@ -9,6 +10,7 @@ namespace CertifyingCommissionEntities
 			Meetings = new List<Meeting>();
 		}
 
+		[Browsable(false)]
 		public ICollection<Meeting> Meetings { get; set; }
 	}
 }

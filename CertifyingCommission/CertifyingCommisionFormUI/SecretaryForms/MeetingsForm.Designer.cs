@@ -31,8 +31,8 @@
 			this.groupBoxMeetings = new System.Windows.Forms.GroupBox();
 			this.dataGridViewMeetings = new System.Windows.Forms.DataGridView();
 			this.groupBoxActions = new System.Windows.Forms.GroupBox();
-			this.buttonConfirm = new System.Windows.Forms.Button();
 			this.buttonReject = new System.Windows.Forms.Button();
+			this.buttonConfirm = new System.Windows.Forms.Button();
 			this.groupBoxMeetings.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewMeetings)).BeginInit();
 			this.groupBoxActions.SuspendLayout();
@@ -51,10 +51,13 @@
 			// 
 			// dataGridViewMeetings
 			// 
+			this.dataGridViewMeetings.AllowUserToAddRows = false;
+			this.dataGridViewMeetings.AllowUserToDeleteRows = false;
 			this.dataGridViewMeetings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridViewMeetings.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dataGridViewMeetings.Location = new System.Drawing.Point(3, 16);
 			this.dataGridViewMeetings.Name = "dataGridViewMeetings";
+			this.dataGridViewMeetings.ReadOnly = true;
 			this.dataGridViewMeetings.Size = new System.Drawing.Size(871, 327);
 			this.dataGridViewMeetings.TabIndex = 0;
 			// 
@@ -70,17 +73,6 @@
 			this.groupBoxActions.TabStop = false;
 			this.groupBoxActions.Text = "Actions";
 			// 
-			// buttonConfirm
-			// 
-			this.buttonConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.buttonConfirm.Location = new System.Drawing.Point(12, 13);
-			this.buttonConfirm.Name = "buttonConfirm";
-			this.buttonConfirm.Size = new System.Drawing.Size(75, 23);
-			this.buttonConfirm.TabIndex = 0;
-			this.buttonConfirm.Text = "Confirm";
-			this.buttonConfirm.UseVisualStyleBackColor = true;
-			this.buttonConfirm.Click += new System.EventHandler(this.buttonConfirm_Click);
-			// 
 			// buttonReject
 			// 
 			this.buttonReject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -91,6 +83,17 @@
 			this.buttonReject.Text = "Reject";
 			this.buttonReject.UseVisualStyleBackColor = true;
 			this.buttonReject.Click += new System.EventHandler(this.buttonReject_Click);
+			// 
+			// buttonConfirm
+			// 
+			this.buttonConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.buttonConfirm.Location = new System.Drawing.Point(12, 13);
+			this.buttonConfirm.Name = "buttonConfirm";
+			this.buttonConfirm.Size = new System.Drawing.Size(75, 23);
+			this.buttonConfirm.TabIndex = 0;
+			this.buttonConfirm.Text = "Confirm";
+			this.buttonConfirm.UseVisualStyleBackColor = true;
+			this.buttonConfirm.Click += new System.EventHandler(this.buttonConfirm_Click);
 			// 
 			// MeetingsForm
 			// 

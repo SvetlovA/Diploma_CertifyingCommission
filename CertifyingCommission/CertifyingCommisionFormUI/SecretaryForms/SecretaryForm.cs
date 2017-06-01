@@ -31,5 +31,34 @@ namespace CertifyingCommisionFormUI.SecretaryForms
 			var meetingsForm = new MeetingsForm(_currentUser, _sertifyingCommission);
 			meetingsForm.Show();
 		}
+
+		private void buttonSecretaries_Click(object sender, System.EventArgs e)
+		{
+			var secretariesForm = new UsersForm<Secretary>(_currentUser, _sertifyingCommission);
+			secretariesForm.Show();
+		}
+
+		private void buttonTeachers_Click(object sender, System.EventArgs e)
+		{
+			var teachersForm = new UsersForm<Teacher>(_currentUser, _sertifyingCommission);
+			teachersForm.Show();
+		}
+
+		private void buttonCommissionMembers_Click(object sender, System.EventArgs e)
+		{
+			var commissionMembersForm = new UsersForm<CommissionMember>(_currentUser, _sertifyingCommission);
+			commissionMembersForm.Show();
+		}
+
+		private void buttonSubjects_Click(object sender, System.EventArgs e)
+		{
+			var subjectsForm = new SubjectsForm(_sertifyingCommission);
+			subjectsForm.Show();
+		}
+
+		private void SecretaryForm_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			Application.Exit();
+		}
 	}
 }

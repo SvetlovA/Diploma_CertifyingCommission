@@ -18,7 +18,7 @@ namespace CertifyingCommisionFormUI.SecretaryForms
 			InitializeComponent();
 			_certifyingCommision = certifyingCommision;
 			_currentUser = user;
-			dataGridViewMeetings.DataSource = _certifyingCommision.GetAllMeetings().ToList();
+			dataGridViewMeetings.DataSource = _certifyingCommision.GetAllMeetings().ToList();	
 		}
 
 		private void buttonConfirm_Click(object sender, System.EventArgs e)

@@ -1,14 +1,19 @@
-﻿namespace CertifyingCommissionEntities
+﻿using System.ComponentModel;
+
+namespace CertifyingCommissionEntities
 {
 	public class User
 	{
+		[Browsable(false)]
 		public int UserId { get; set; }
 		public string Login { get; set; }
+		[Browsable(false)]
 		public int PasswordHash { get; set; }
 		public string Surname { get; set; }
 		public string Name { get; set; }
 		public string Patronymic { get; set; }
 
+		[Browsable(false)]
 		public Sault Sault { get; set; }
 
 		protected bool Equals(User other)

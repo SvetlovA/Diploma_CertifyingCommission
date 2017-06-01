@@ -30,28 +30,27 @@ namespace CertifyingCommissionEntities
 			modelBuilder.Entity<CommissionMember>().ToTable("CommisionMembers");
 
 			modelBuilder.Entity<Meeting>()
-				.HasRequired(m => m.Teacher)
+				.HasOptional(m => m.Teacher)
 				.WithMany(t => t.Meetings)
 				.HasForeignKey(m => m.TeacherId)
 				.WillCascadeOnDelete();
 
 			modelBuilder.Entity<Meeting>()
-				.HasRequired(m => m.CommissionMember)
+				.HasOptional(m => m.CommissionMember)
 				.WithMany(c => c.Meetings)
 				.HasForeignKey(m => m.CommissionMemberId)
 				.WillCascadeOnDelete();
 
 			modelBuilder.Entity<Meeting>()
-				.HasRequired(m => m.Secretary)
+				.HasOptional(m => m.Secretary)
 				.WithMany(s => s.Meetings)
 				.HasForeignKey(m => m.SecretaryId)
 				.WillCascadeOnDelete();
 
 			modelBuilder.Entity<Teacher>()
-				.HasRequired(t => t.Subject)
+				.HasOptional(t => t.Subject)
 				.WithMany(s => s.Teachers)
-				.HasForeignKey(t => t.SubjectId)
-				.WillCascadeOnDelete();
+				.HasForeignKey(t => t.SubjectId);
 
 			modelBuilder.Entity<Sault>()
 				.HasKey(s => s.UserId);

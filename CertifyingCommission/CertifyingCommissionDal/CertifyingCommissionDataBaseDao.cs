@@ -24,7 +24,11 @@ namespace CertifyingCommissionDal
 		{
 			if (user == null)
 				throw new ArgumentNullException(nameof(user));
-			_context.Entry(user).State = EntityState.Added;
+
+			var userEntry = _context.Entry(user);
+			userEntry.State = EntityState.Added;
+			_context.SaveChanges();
+			userEntry.State = EntityState.Detached;
 			_context.SaveChanges();
 		}
 
@@ -32,7 +36,25 @@ namespace CertifyingCommissionDal
 		{
 			if (subject == null)
 				throw new ArgumentNullException(nameof(subject));
-			_context.Entry(subject).State = EntityState.Added;
+
+			var subjectEntry = _context.Entry(subject);
+			subjectEntry.State = EntityState.Added;
+			_context.SaveChanges();
+			subjectEntry.State = EntityState.Detached;
+		}
+
+		public void CreateMeeting(Meeting meeting)
+		{
+			if (meeting == null)
+				throw new ArgumentNullException(nameof(meeting));
+
+			var meetingEntry = _context.Entry(meeting);
+			meeting.Secretary = _context.Secretaries.Find(meeting.SecretaryId);
+			meeting.CommissionMember = _context.CommisionMembers.Find(meeting.CommissionMemberId);
+			meeting.Teacher = _context.Teachers.Find(meeting.TeacherId);
+			meetingEntry.State = EntityState.Added;
+			_context.SaveChanges();
+			meetingEntry.State = EntityState.Detached;
 			_context.SaveChanges();
 		}
 
@@ -47,14 +69,28 @@ namespace CertifyingCommissionDal
 				.FirstOrDefault();
 		}
 
+		public Sault ReadSault(int userId) =>
+			_context.Saults
+				.Where(sault => sault.UserId == userId)
+				.AsNoTracking()
+				.FirstOrDefault();
+
 		public IEnumerable<Teacher> ReadAllTeachers() =>
 			_context.Teachers.AsNoTracking();
 
 		public IEnumerable<CommissionMember> ReadAllCommisionMembers() =>
 			_context.CommisionMembers.AsNoTracking();
 
-		public IEnumerable<Secretary> ReadAllSecretaries() =>
-			_context.Secretaries.AsNoTracking();
+		public IEnumerable<Secretary> ReadSecretaries(Secretary secretary)
+		{
+			if (secretary == null)
+				throw new ArgumentNullException(nameof(secretary));
+
+			return _context.Secretaries
+				.Where(sec => sec.UserId != secretary.UserId)
+				.AsNoTracking();
+			;
+		}
 
 		public IEnumerable<Subject> ReadAllSubjects() =>
 			_context.Subjects.AsNoTracking();
@@ -62,25 +98,28 @@ namespace CertifyingCommissionDal
 		public IEnumerable<Meeting> ReadAllMeetings() =>
 			_context.Meetings.AsNoTracking();
 
-		public void UpdateTeacher(Teacher teacher)
+		public void UpdateUser(User user)
 		{
-			if (teacher == null)
-				throw new ArgumentNullException(nameof(teacher));
-		}
+			if (user == null)
+				throw new ArgumentNullException(nameof(user));
 
-		public void UpdateCommisionMember(CommissionMember commisionMember)
-		{
-			throw new System.NotImplementedException();
-		}
-
-		public void UpdateSecretary(Secretary secretary)
-		{
-			throw new System.NotImplementedException();
+			var entryUser = _context.Entry(user);
+			entryUser.State = EntityState.Modified;
+			_context.SaveChanges();
+			entryUser.State = EntityState.Detached;
+			_context.SaveChanges();
 		}
 
 		public void UpdateSubject(Subject subject)
 		{
-			throw new System.NotImplementedException();
+			if (subject == null)
+				throw new ArgumentNullException(nameof(subject));
+
+			var entrySubject = _context.Entry(subject);
+			entrySubject.State = EntityState.Modified;
+			_context.SaveChanges();
+			entrySubject.State= EntityState.Detached;
+			_context.SaveChanges();
 		}
 
 		public void UpdateMeeting(Meeting meeting)
@@ -92,25 +131,27 @@ namespace CertifyingCommissionDal
 			_context.SaveChanges();
 		}
 
-		public void DeleteTeacher(Teacher teacher)
+		public void DeleteUser(User user)
 		{
-			_context.Entry(teacher).State = EntityState.Deleted;
+			if (user == null)
+				throw new ArgumentNullException(nameof(user));
+
+			_context.Entry(user).State = EntityState.Deleted;
 			_context.SaveChanges();
 		}
 
-		public void DeleteCommisionMember(CommissionMember commisionMember)
+		public void DeleteMeeting(Meeting meeting)
 		{
-			throw new System.NotImplementedException();
-		}
-
-		public void DeleteSecretary(Secretary secretary)
-		{
-			throw new System.NotImplementedException();
+			throw new NotImplementedException();
 		}
 
 		public void DeleteSubject(Subject subject)
 		{
-			throw new System.NotImplementedException();
+			if (subject == null)
+				throw new ArgumentNullException(nameof(subject));
+
+			_context.Entry(subject).State = EntityState.Deleted;
+			_context.SaveChanges();
 		}
 
 		public void Dispose() =>

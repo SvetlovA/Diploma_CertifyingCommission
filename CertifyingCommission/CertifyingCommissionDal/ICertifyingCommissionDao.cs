@@ -8,23 +8,22 @@ namespace CertifyingCommissionDal
 	{
 		void CreateUser(User user);
 		void CreateSubject(Subject subject);
+		void CreateMeeting(Meeting meeting);
 
 		User ReadUser(string login);
+		Sault ReadSault(int userId);
 		IEnumerable<Teacher> ReadAllTeachers();
 		IEnumerable<CommissionMember> ReadAllCommisionMembers();
-		IEnumerable<Secretary> ReadAllSecretaries();
+		IEnumerable<Secretary> ReadSecretaries(Secretary secretary);
 		IEnumerable<Subject> ReadAllSubjects();
 		IEnumerable<Meeting> ReadAllMeetings();
 
-		void UpdateTeacher(Teacher teacher);
-		void UpdateCommisionMember(CommissionMember commisionMember);
-		void UpdateSecretary(Secretary secretary);
+		void UpdateUser(User user);
 		void UpdateSubject(Subject subject);
 		void UpdateMeeting(Meeting meeting);
 
-		void DeleteTeacher(Teacher teacher);
-		void DeleteCommisionMember(CommissionMember commisionMember);
-		void DeleteSecretary(Secretary secretary);
+		void DeleteUser(User user);
+		void DeleteMeeting(Meeting meeting);
 		void DeleteSubject(Subject subject);
 	}
 }

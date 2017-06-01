@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace CertifyingCommissionEntities
 {
@@ -9,8 +10,10 @@ namespace CertifyingCommissionEntities
 			Teachers = new List<Teacher>();
 		}
 
+		[Browsable(false)]
 		public int SubjectId { get; set; }
 		public string SubjectName { get; set; }
+		[Browsable(false)]
 		public ICollection<Teacher> Teachers { get; set; }
 
 		protected bool Equals(Subject other)
@@ -29,6 +32,11 @@ namespace CertifyingCommissionEntities
 		public override int GetHashCode()
 		{
 			return (SubjectName != null ? SubjectName.GetHashCode() : 0);
+		}
+
+		public override string ToString()
+		{
+			return SubjectName;
 		}
 	}
 }

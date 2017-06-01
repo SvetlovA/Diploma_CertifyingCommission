@@ -8,13 +8,16 @@ namespace CertifyingCommissionEntities
 		[Browsable(false)]
 		public int MeetingId { get; set; }
 		[Browsable(false)]
-		public int TeacherId { get; set; }
+		public int? TeacherId { get; set; }
 		[Browsable(false)]
-		public int CommissionMemberId { get; set; }
+		public int? CommissionMemberId { get; set; }
 		[Browsable(false)]
-		public int SecretaryId { get; set; }
-		public DateTime MeetingDateTime { get; set; }
+		public int? SecretaryId { get; set; }
+		public DateTime? MeetingCreationDateTime { get; set; }
+		public DateTime? MeetingDateTime { get; set; }
 		public MeetingStatus MeetingStatus { get; set; }
+		[Browsable(false)]
+		public byte[] File { get; set; }
 
 		public Secretary Secretary { get; set; }
 		public CommissionMember CommissionMember { get; set; }

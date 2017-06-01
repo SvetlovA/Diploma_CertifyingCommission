@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using CertifyingCommisionBl;
 using CertifyingCommisionFormUI.SecretaryForms;
+using CertifyingCommisionFormUI.TeacherForms;
 using CertifyingCommissionEntities;
 
 namespace CertifyingCommisionFormUI
@@ -14,13 +15,31 @@ namespace CertifyingCommisionFormUI
 		{
 			InitializeComponent();
 			_sertifyingCommision = new CertifyingCommission();
-			/*_sertifyingCommision.AddUser(new Secretary
+			/*_sertifyingCommision.AddSubject(new Subject
+			{
+				SubjectName = "Math"
+			});
+			_sertifyingCommision.AddUser(new Secretary
 			{
 				Login = "secretary",
 				Surname = "Ivanov",
 				Name = "Ivan",
 				Patronymic = "Ivanovich",
-			}, "secretary");*/
+			}, "secretary");
+			_sertifyingCommision.AddUser(new Teacher
+			{
+				Login = "teacher",
+				Surname = "Mitrofanov",
+				Name = "Kirill",
+				Patronymic = "Sergeevich"
+			}, "teacher");
+			_sertifyingCommision.AddUser(new CommissionMember
+			{
+				Login = "c_member",
+				Surname = "Petrov",
+				Name = "Peter",
+				Patronymic = "Petrovich",
+			}, "c_member");*/
 		}
 
 		private void buttonLogin_Click(object sender, EventArgs e)
@@ -44,7 +63,7 @@ namespace CertifyingCommisionFormUI
 				return new SecretaryForm(user, _sertifyingCommision);
 
 			if (user is Teacher)
-				return new TeacherForm();
+				return new TeacherForm(user, _sertifyingCommision);
 
 			if (user is CommissionMember)
 				return new CommissionMemberForm();

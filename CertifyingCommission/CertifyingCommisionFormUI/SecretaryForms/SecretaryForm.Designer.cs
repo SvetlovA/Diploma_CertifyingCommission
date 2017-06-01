@@ -34,6 +34,7 @@
 			this.buttonTeachers = new System.Windows.Forms.Button();
 			this.buttonCommissionMembers = new System.Windows.Forms.Button();
 			this.buttonExit = new System.Windows.Forms.Button();
+			this.buttonSubjects = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// labelHelloMessage
@@ -66,6 +67,7 @@
 			this.buttonSecretaries.TabIndex = 2;
 			this.buttonSecretaries.Text = "Secretaries";
 			this.buttonSecretaries.UseVisualStyleBackColor = true;
+			this.buttonSecretaries.Click += new System.EventHandler(this.buttonSecretaries_Click);
 			// 
 			// buttonTeachers
 			// 
@@ -76,6 +78,7 @@
 			this.buttonTeachers.TabIndex = 3;
 			this.buttonTeachers.Text = "Teachers";
 			this.buttonTeachers.UseVisualStyleBackColor = true;
+			this.buttonTeachers.Click += new System.EventHandler(this.buttonTeachers_Click);
 			// 
 			// buttonCommissionMembers
 			// 
@@ -86,11 +89,12 @@
 			this.buttonCommissionMembers.TabIndex = 4;
 			this.buttonCommissionMembers.Text = "Commission Members";
 			this.buttonCommissionMembers.UseVisualStyleBackColor = true;
+			this.buttonCommissionMembers.Click += new System.EventHandler(this.buttonCommissionMembers_Click);
 			// 
 			// buttonExit
 			// 
 			this.buttonExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.buttonExit.Location = new System.Drawing.Point(79, 261);
+			this.buttonExit.Location = new System.Drawing.Point(79, 284);
 			this.buttonExit.Name = "buttonExit";
 			this.buttonExit.Size = new System.Drawing.Size(141, 30);
 			this.buttonExit.TabIndex = 5;
@@ -98,11 +102,23 @@
 			this.buttonExit.UseVisualStyleBackColor = true;
 			this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
 			// 
+			// buttonSubjects
+			// 
+			this.buttonSubjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.buttonSubjects.Location = new System.Drawing.Point(79, 219);
+			this.buttonSubjects.Name = "buttonSubjects";
+			this.buttonSubjects.Size = new System.Drawing.Size(141, 30);
+			this.buttonSubjects.TabIndex = 6;
+			this.buttonSubjects.Text = "Subjects";
+			this.buttonSubjects.UseVisualStyleBackColor = true;
+			this.buttonSubjects.Click += new System.EventHandler(this.buttonSubjects_Click);
+			// 
 			// SecretaryForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(330, 303);
+			this.ClientSize = new System.Drawing.Size(330, 326);
+			this.Controls.Add(this.buttonSubjects);
 			this.Controls.Add(this.buttonExit);
 			this.Controls.Add(this.buttonCommissionMembers);
 			this.Controls.Add(this.buttonTeachers);
@@ -111,6 +127,7 @@
 			this.Controls.Add(this.labelHelloMessage);
 			this.Name = "SecretaryForm";
 			this.Text = "Menu";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SecretaryForm_FormClosed);
 			this.Load += new System.EventHandler(this.SecretaryForm_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -125,5 +142,6 @@
 		private System.Windows.Forms.Button buttonTeachers;
 		private System.Windows.Forms.Button buttonCommissionMembers;
 		private System.Windows.Forms.Button buttonExit;
+		private System.Windows.Forms.Button buttonSubjects;
 	}
 }
