@@ -108,6 +108,12 @@
     <Compile Include="TeacherForms\CreateMeetingForm.Designer.cs">
       <DependentUpon>CreateMeetingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TeacherForms\MeetingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeacherForms\MeetingsForm.Designer.cs">
+      <DependentUpon>MeetingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TeacherForms\SetSubjectForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TeacherForms\CreateMeetingForm.resx">
       <DependentUpon>CreateMeetingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeacherForms\MeetingsForm.resx">
+      <DependentUpon>MeetingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TeacherForms\SetSubjectForm.resx">
       <DependentUpon>SetSubjectForm.cs</DependentUpon>

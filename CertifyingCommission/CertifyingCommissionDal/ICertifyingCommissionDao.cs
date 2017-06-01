@@ -17,6 +17,7 @@ namespace CertifyingCommissionDal
 		IEnumerable<Secretary> ReadSecretaries(Secretary secretary);
 		IEnumerable<Subject> ReadAllSubjects();
 		IEnumerable<Meeting> ReadAllMeetings();
+		IEnumerable<Meeting> ReadTeacherMeetings(User user);
 
 		void UpdateUser(User user);
 		void UpdateSubject(Subject subject);

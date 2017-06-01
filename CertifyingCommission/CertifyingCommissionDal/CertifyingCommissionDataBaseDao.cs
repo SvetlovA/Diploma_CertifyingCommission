@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -96,7 +97,19 @@ namespace CertifyingCommissionDal
 			_context.Subjects.AsNoTracking();
 
 		public IEnumerable<Meeting> ReadAllMeetings() =>
-			_context.Meetings.AsNoTracking();
+			_context.Meetings
+				.Include(m => m.Teacher)
+				.Include(m => m.Secretary)
+				.Include(m => m.CommissionMember)
+				.AsNoTracking();
+
+		public IEnumerable<Meeting> ReadTeacherMeetings(User user) =>
+			_context.Meetings
+				.Include(m => m.Teacher)
+				.Include(m => m.Secretary)
+				.Include(m => m.CommissionMember)
+				.Where(m => m.TeacherId == user.UserId)
+				.AsNoTracking();
 
 		public void UpdateUser(User user)
 		{
@@ -127,7 +140,10 @@ namespace CertifyingCommissionDal
 			if (meeting == null)
 				throw new ArgumentNullException(nameof(meeting));
 
-			_context.Entry(meeting).State = EntityState.Modified;
+			var entryMeeting = _context.Entry(meeting);
+			entryMeeting.State = EntityState.Modified;
+			_context.SaveChanges();
+			entryMeeting.State = EntityState.Detached;
 			_context.SaveChanges();
 		}
 

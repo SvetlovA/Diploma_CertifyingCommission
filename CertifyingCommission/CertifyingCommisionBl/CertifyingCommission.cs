@@ -77,6 +77,9 @@ namespace CertifyingCommisionBl
 		public IEnumerable<Subject> GetAllSubjects() =>
 			_certifyingCommissionDao.ReadAllSubjects();
 
+		public IEnumerable<Meeting> GetTeacherMeetings(User user) =>
+			_certifyingCommissionDao.ReadTeacherMeetings(user);
+
 		public void UpdateUser(User user, string password)
 		{
 			var sault = _certifyingCommissionDao.ReadSault(user.UserId);

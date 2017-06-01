@@ -32,6 +32,17 @@ namespace CertifyingCommisionFormUI.TeacherForms
 			labelHelloMessage.Text += _currentUser.Name;
 		}
 
+		private void buttonMeetings_Click(object sender, EventArgs e)
+		{
+			ShowMeetings();
+		}
+
+		private void ShowMeetings()
+		{
+			var meetingsForm = new MeetingsForm(_currentUser, _certifyingCommission);
+			meetingsForm.Show();
+		}
+
 		private void buttonCreateMeeting_Click(object sender, EventArgs e)
 		{
 			CreateMeeting();

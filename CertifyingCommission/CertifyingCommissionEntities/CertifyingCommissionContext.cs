@@ -15,7 +15,7 @@ namespace CertifyingCommissionEntities
 		public DbSet<Subject> Subjects { get; set; }
 		public DbSet<Sault> Saults { get; set; }
 
-		public CertifyingCommissionContext() : this(ConfigurationManager.ConnectionStrings["CertifyingCommision"].ConnectionString)
+		public CertifyingCommissionContext() : this(ConfigurationManager.ConnectionStrings["CertifyingCommision_Home"].ConnectionString)
 		{ }
 
 		public CertifyingCommissionContext(string connectionString) : base(connectionString)

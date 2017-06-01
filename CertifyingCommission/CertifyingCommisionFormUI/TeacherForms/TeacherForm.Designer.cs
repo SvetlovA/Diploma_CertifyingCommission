@@ -32,6 +32,7 @@
 			this.buttonCreateMeeting = new System.Windows.Forms.Button();
 			this.buttonSetSubject = new System.Windows.Forms.Button();
 			this.buttonExit = new System.Windows.Forms.Button();
+			this.buttonMeetings = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// labelHelloMessage
@@ -47,7 +48,7 @@
 			// buttonCreateMeeting
 			// 
 			this.buttonCreateMeeting.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.buttonCreateMeeting.Location = new System.Drawing.Point(69, 58);
+			this.buttonCreateMeeting.Location = new System.Drawing.Point(69, 82);
 			this.buttonCreateMeeting.Name = "buttonCreateMeeting";
 			this.buttonCreateMeeting.Size = new System.Drawing.Size(141, 30);
 			this.buttonCreateMeeting.TabIndex = 2;
@@ -58,7 +59,7 @@
 			// buttonSetSubject
 			// 
 			this.buttonSetSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.buttonSetSubject.Location = new System.Drawing.Point(69, 94);
+			this.buttonSetSubject.Location = new System.Drawing.Point(69, 118);
 			this.buttonSetSubject.Name = "buttonSetSubject";
 			this.buttonSetSubject.Size = new System.Drawing.Size(141, 30);
 			this.buttonSetSubject.TabIndex = 3;
@@ -69,7 +70,7 @@
 			// buttonExit
 			// 
 			this.buttonExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.buttonExit.Location = new System.Drawing.Point(69, 160);
+			this.buttonExit.Location = new System.Drawing.Point(69, 182);
 			this.buttonExit.Name = "buttonExit";
 			this.buttonExit.Size = new System.Drawing.Size(141, 30);
 			this.buttonExit.TabIndex = 4;
@@ -77,11 +78,23 @@
 			this.buttonExit.UseVisualStyleBackColor = true;
 			this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
 			// 
+			// buttonMeetings
+			// 
+			this.buttonMeetings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.buttonMeetings.Location = new System.Drawing.Point(69, 46);
+			this.buttonMeetings.Name = "buttonMeetings";
+			this.buttonMeetings.Size = new System.Drawing.Size(141, 30);
+			this.buttonMeetings.TabIndex = 5;
+			this.buttonMeetings.Text = "My meetings";
+			this.buttonMeetings.UseVisualStyleBackColor = true;
+			this.buttonMeetings.Click += new System.EventHandler(this.buttonMeetings_Click);
+			// 
 			// TeacherForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(290, 203);
+			this.ClientSize = new System.Drawing.Size(290, 224);
+			this.Controls.Add(this.buttonMeetings);
 			this.Controls.Add(this.buttonExit);
 			this.Controls.Add(this.buttonSetSubject);
 			this.Controls.Add(this.buttonCreateMeeting);
@@ -101,5 +114,6 @@
 		private System.Windows.Forms.Button buttonCreateMeeting;
 		private System.Windows.Forms.Button buttonSetSubject;
 		private System.Windows.Forms.Button buttonExit;
+		private System.Windows.Forms.Button buttonMeetings;
 	}
 }

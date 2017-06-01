@@ -40,5 +40,10 @@ namespace CertifyingCommissionEntities
 				return hashCode;
 			}
 		}
+
+		public override string ToString()
+		{
+			return $"{Surname} {Name[0]}. {Patronymic[0]}.";
+		}
 	}
 }

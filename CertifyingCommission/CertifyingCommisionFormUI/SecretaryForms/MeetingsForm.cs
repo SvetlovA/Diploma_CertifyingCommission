@@ -18,7 +18,7 @@ namespace CertifyingCommisionFormUI.SecretaryForms
 			InitializeComponent();
 			_certifyingCommision = certifyingCommision;
 			_currentUser = user;
-			dataGridViewMeetings.DataSource = _certifyingCommision.GetAllMeetings().ToList();	
+			UpdateData();
 		}
 
 		private void buttonConfirm_Click(object sender, System.EventArgs e)
@@ -42,8 +42,13 @@ namespace CertifyingCommisionFormUI.SecretaryForms
 
 			var meeting = (Meeting) dataGridViewMeetings.CurrentRow.DataBoundItem;
 			meeting.MeetingStatus = meetingStatus;
+			meeting.SecretaryId = _currentUser.UserId;
 			meeting.Secretary = (Secretary) _currentUser;
 			_certifyingCommision.UpdateMeeting(meeting);
+			UpdateData();
 		}
+
+		private void UpdateData() =>
+			dataGridViewMeetings.DataSource = _certifyingCommision.GetAllMeetings().ToList();
 	}
 }
