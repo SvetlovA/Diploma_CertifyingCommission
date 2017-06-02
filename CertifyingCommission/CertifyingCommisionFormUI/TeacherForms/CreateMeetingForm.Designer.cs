@@ -67,7 +67,7 @@
 			// 
 			// openFileDialog
 			// 
-			this.openFileDialog.FileName = "openFileDialog1";
+			this.openFileDialog.Filter = "\"Text files|*.txt|Doc files|*.doc|Docx files|*.docx\"";
 			// 
 			// labelSelectedFileName
 			// 

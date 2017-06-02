@@ -1,10 +1,11 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using CertifyingCommisionBl;
 using CertifyingCommissionEntities;
 
 namespace CertifyingCommisionFormUI.SecretaryForms
 {
-	public partial class AddDeleteEditSubjectForm : Form
+	public partial class AddDeleteEditSubjectForm : Form, IValidatableForm
 	{
 		private const string AddFormText = "Add Subject";
 		private const string AddButtonText = "Add";
@@ -13,10 +14,19 @@ namespace CertifyingCommisionFormUI.SecretaryForms
 		private const string EditFormText = "Edit Subject";
 		private const string EditButtonText = "Edit";
 
+		private const string ValidationFailedMessage = "Validation failed.";
+		private const string ValidationFailedTitle = "Validation";
+
+		private const string SubjectNameFieldEmptyMessage = "Subject name can't be empty.";
+		private const string EmptyFieldMessage = "can't be empty.";
+		private const string ErrorTitle = "Error";
+
 		public AddDeleteEditSubjectForm()
 		{
 			InitializeComponent();
 		}
+
+		public bool IsValid { get; set; }
 
 		public static void AddSubject(CertifyingCommission certifyingCommission)
 		{
@@ -24,10 +34,23 @@ namespace CertifyingCommisionFormUI.SecretaryForms
 			SetFormIncriptions(addSubjectForm, AddFormText, AddButtonText);
 
 			if (addSubjectForm.ShowDialog() == DialogResult.OK)
-				certifyingCommission.AddSubject(new Subject
+			{
+				try
 				{
-					SubjectName = addSubjectForm.textBoxSubjectName.Text
-				});
+					certifyingCommission.AddSubject(new Subject
+					{
+						SubjectName = addSubjectForm.textBoxSubjectName.Text
+					});
+				}
+				catch (ArgumentNullException ex)
+				{
+					MessageBox.Show($"{ex.ParamName} {EmptyFieldMessage}", ErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show(ex.Message, ErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
 		}
 
 		public static void DeleteSubject(Subject deletedSubject, CertifyingCommission certifyingCommission)
@@ -36,9 +59,24 @@ namespace CertifyingCommisionFormUI.SecretaryForms
 			SetFormIncriptions(deleteSubjectForm, DeleteFormText, DeleteButtonText);
 			deleteSubjectForm.textBoxSubjectName.Text = deletedSubject.SubjectName;
 			deleteSubjectForm.textBoxSubjectName.Enabled = false;
+			deleteSubjectForm.IsValid = true;
 
 			if (deleteSubjectForm.ShowDialog() == DialogResult.OK)
-				certifyingCommission.DeleteSubject(deletedSubject);
+			{
+				
+				try
+				{
+					certifyingCommission.DeleteSubject(deletedSubject);
+				}
+				catch (ArgumentNullException ex)
+				{
+					MessageBox.Show($"{ex.ParamName} {EmptyFieldMessage}", ErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show(ex.Message, ErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
 		}
 
 		public static void EditSubject(Subject editedSubject, CertifyingCommission certifyingCommission)
@@ -50,15 +88,48 @@ namespace CertifyingCommisionFormUI.SecretaryForms
 			if (editSubjectForm.ShowDialog() == DialogResult.OK)
 			{
 				editedSubject.SubjectName = editSubjectForm.textBoxSubjectName.Text;
-				certifyingCommission.UpdateSubject(editedSubject);
+				try
+				{
+					certifyingCommission.UpdateSubject(editedSubject);
+				}
+				catch (ArgumentNullException ex)
+				{
+					MessageBox.Show($"{ex.ParamName} {EmptyFieldMessage}", ErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show(ex.Message, ErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
 			}
 		}
 
-		private static void SetFormIncriptions(AddDeleteEditSubjectForm addDeleteEditSubjectForm, string formText,
+		private static void SetFormIncriptions(AddDeleteEditSubjectForm addDeleteEditSubjectValidatableForm, string formText,
 			string submitButtonText)
 		{
-			addDeleteEditSubjectForm.Text = formText;
-			addDeleteEditSubjectForm.buttonSubmit.Text = submitButtonText;
+			addDeleteEditSubjectValidatableForm.Text = formText;
+			addDeleteEditSubjectValidatableForm.buttonSubmit.Text = submitButtonText;
+		}
+
+		private void textBoxSubjectName_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			if (string.IsNullOrEmpty(textBoxSubjectName.Text) || string.IsNullOrWhiteSpace(textBoxSubjectName.Text))
+			{
+				errorProvider.SetError(textBoxSubjectName, SubjectNameFieldEmptyMessage);
+				IsValid = false;
+			}
+			else
+			{
+				errorProvider.Clear();
+				IsValid = true;
+			}
+		}
+
+		private void buttonSubmit_Click(object sender, EventArgs e)
+		{
+			if (!IsValid)
+				MessageBox.Show(ValidationFailedMessage, ValidationFailedTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			else
+				DialogResult = DialogResult.OK;
 		}
 	}
 }

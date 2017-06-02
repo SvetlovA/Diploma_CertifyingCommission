@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.labelLogin = new System.Windows.Forms.Label();
 			this.labelPassword = new System.Windows.Forms.Label();
 			this.labelSurname = new System.Windows.Forms.Label();
@@ -40,6 +41,8 @@
 			this.textBoxLogin = new System.Windows.Forms.TextBox();
 			this.buttonSubmit = new System.Windows.Forms.Button();
 			this.buttonCancel = new System.Windows.Forms.Button();
+			this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// labelLogin
@@ -95,6 +98,7 @@
 			this.textBoxPatronymic.Name = "textBoxPatronymic";
 			this.textBoxPatronymic.Size = new System.Drawing.Size(163, 20);
 			this.textBoxPatronymic.TabIndex = 5;
+			this.textBoxPatronymic.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxPatronymic_Validating);
 			// 
 			// textBoxName
 			// 
@@ -104,6 +108,7 @@
 			this.textBoxName.Name = "textBoxName";
 			this.textBoxName.Size = new System.Drawing.Size(163, 20);
 			this.textBoxName.TabIndex = 6;
+			this.textBoxName.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxName_Validating);
 			// 
 			// textBoxSurname
 			// 
@@ -113,6 +118,7 @@
 			this.textBoxSurname.Name = "textBoxSurname";
 			this.textBoxSurname.Size = new System.Drawing.Size(163, 20);
 			this.textBoxSurname.TabIndex = 7;
+			this.textBoxSurname.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxSurname_Validating);
 			// 
 			// textBoxPassword
 			// 
@@ -122,6 +128,7 @@
 			this.textBoxPassword.Name = "textBoxPassword";
 			this.textBoxPassword.Size = new System.Drawing.Size(163, 20);
 			this.textBoxPassword.TabIndex = 8;
+			this.textBoxPassword.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxPassword_Validating);
 			// 
 			// textBoxLogin
 			// 
@@ -131,17 +138,18 @@
 			this.textBoxLogin.Name = "textBoxLogin";
 			this.textBoxLogin.Size = new System.Drawing.Size(163, 20);
 			this.textBoxLogin.TabIndex = 9;
+			this.textBoxLogin.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxLogin_Validating);
 			// 
 			// buttonSubmit
 			// 
 			this.buttonSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.buttonSubmit.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.buttonSubmit.Location = new System.Drawing.Point(94, 240);
 			this.buttonSubmit.Name = "buttonSubmit";
 			this.buttonSubmit.Size = new System.Drawing.Size(75, 23);
 			this.buttonSubmit.TabIndex = 10;
 			this.buttonSubmit.Text = "OK";
 			this.buttonSubmit.UseVisualStyleBackColor = true;
+			this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
 			// 
 			// buttonCancel
 			// 
@@ -153,6 +161,10 @@
 			this.buttonCancel.TabIndex = 11;
 			this.buttonCancel.Text = "Cancel";
 			this.buttonCancel.UseVisualStyleBackColor = true;
+			// 
+			// errorProvider
+			// 
+			this.errorProvider.ContainerControl = this;
 			// 
 			// AddDeleteEditUserForm
 			// 
@@ -173,6 +185,7 @@
 			this.Controls.Add(this.labelLogin);
 			this.Name = "AddDeleteEditUserForm";
 			this.Text = "AddDeleteEditUserForm";
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -192,5 +205,6 @@
 		private System.Windows.Forms.TextBox textBoxLogin;
 		private System.Windows.Forms.Button buttonSubmit;
 		private System.Windows.Forms.Button buttonCancel;
+		private System.Windows.Forms.ErrorProvider errorProvider;
 	}
 }

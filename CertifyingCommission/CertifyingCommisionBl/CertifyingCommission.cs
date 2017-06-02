@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using CertifyingCommissionDal;
 using CertifyingCommissionEntities;
 
@@ -80,6 +81,9 @@ namespace CertifyingCommisionBl
 		public IEnumerable<Meeting> GetTeacherMeetings(User user) =>
 			_certifyingCommissionDao.ReadTeacherMeetings(user);
 
+		public IEnumerable<Meeting> GetConfirmedMeetings() =>
+			_certifyingCommissionDao.ReadConfirmedMeetings();
+
 		public void UpdateUser(User user, string password)
 		{
 			var sault = _certifyingCommissionDao.ReadSault(user.UserId);
@@ -106,8 +110,18 @@ namespace CertifyingCommisionBl
 		public void DeleteSubject(Subject subject) =>
 			_certifyingCommissionDao.DeleteSubject(subject);
 
+		public void DeleteMeeting(Meeting meeting) =>
+			_certifyingCommissionDao.DeleteMeeting(meeting);
+
 		public void Dispose() =>
 			_certifyingCommissionDao?.Dispose();
+
+		public void ClearNotActualMeetings()
+		{
+			var notActualMeetings = _certifyingCommissionDao.ReadNotActualMeetings();
+			foreach (var meeting in notActualMeetings)
+				_certifyingCommissionDao.DeleteMeeting(meeting);
+		}
 
 		private int CalculateSaultPasswordHash(string password, int saultValue)
 		{

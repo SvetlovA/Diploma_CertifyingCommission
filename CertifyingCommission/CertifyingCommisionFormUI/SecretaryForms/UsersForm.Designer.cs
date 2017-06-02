@@ -116,7 +116,7 @@
 			this.Controls.Add(this.groupBoxActions);
 			this.Controls.Add(this.groupBoxUsers);
 			this.Name = "UsersForm";
-			this.Text = "UsersForm";
+			this.Text = "Users";
 			this.groupBoxUsers.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
 			this.groupBoxActions.ResumeLayout(false);

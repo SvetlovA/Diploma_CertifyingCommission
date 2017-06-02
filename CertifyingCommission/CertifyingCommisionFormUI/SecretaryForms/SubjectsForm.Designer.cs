@@ -116,7 +116,7 @@
 			this.Controls.Add(this.groupBoxActions);
 			this.Controls.Add(this.groupBoxSubjects);
 			this.Name = "SubjectsForm";
-			this.Text = "SubjectsForm";
+			this.Text = "Subjects";
 			this.groupBoxSubjects.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewSubjects)).EndInit();
 			this.groupBoxActions.ResumeLayout(false);

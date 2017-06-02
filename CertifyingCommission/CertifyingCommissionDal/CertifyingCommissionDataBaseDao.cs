@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -9,6 +8,8 @@ namespace CertifyingCommissionDal
 {
 	public class CertifyingCommissionDataBaseDao : ICertifyingCommissionDao
 	{
+		private const int WeekLength = 7;
+
 		private readonly CertifyingCommissionContext _context;
 
 		public CertifyingCommissionDataBaseDao()
@@ -77,7 +78,9 @@ namespace CertifyingCommissionDal
 				.FirstOrDefault();
 
 		public IEnumerable<Teacher> ReadAllTeachers() =>
-			_context.Teachers.AsNoTracking();
+			_context.Teachers
+				.Include(t => t.Subject)
+				.AsNoTracking();
 
 		public IEnumerable<CommissionMember> ReadAllCommisionMembers() =>
 			_context.CommisionMembers.AsNoTracking();
@@ -90,7 +93,6 @@ namespace CertifyingCommissionDal
 			return _context.Secretaries
 				.Where(sec => sec.UserId != secretary.UserId)
 				.AsNoTracking();
-			;
 		}
 
 		public IEnumerable<Subject> ReadAllSubjects() =>
@@ -109,6 +111,27 @@ namespace CertifyingCommissionDal
 				.Include(m => m.Secretary)
 				.Include(m => m.CommissionMember)
 				.Where(m => m.TeacherId == user.UserId)
+				.AsNoTracking();
+
+		public IEnumerable<Meeting> ReadConfirmedMeetings() =>
+			_context.Meetings
+				.Include(m => m.Teacher)
+				.Include(m => m.Secretary)
+				.Include(m => m.CommissionMember)
+				.Where(m => m.MeetingStatus == MeetingStatus.Confirmed)
+				.AsNoTracking();
+
+		public IEnumerable<Meeting> ReadNotActualMeetings() =>
+			_context.Meetings
+				.Include(m => m.Teacher)
+				.Include(m => m.Secretary)
+				.Include(m => m.CommissionMember)
+				.Where(m => m.MeetingCreationDateTime != null &&
+							m.MeetingStatus == MeetingStatus.Rejected &&
+							DbFunctions.DiffDays(m.MeetingCreationDateTime.Value, DateTime.Now) > WeekLength ||
+							m.MeetingDateTime != null &&
+							m.MeetingStatus == MeetingStatus.Confirmed &&
+							DbFunctions.DiffDays(m.MeetingDateTime.Value, DateTime.Now) > WeekLength)
 				.AsNoTracking();
 
 		public void UpdateUser(User user)
@@ -158,7 +181,11 @@ namespace CertifyingCommissionDal
 
 		public void DeleteMeeting(Meeting meeting)
 		{
-			throw new NotImplementedException();
+			if (meeting == null)
+				throw new ArgumentNullException(nameof(meeting));
+
+			_context.Entry(meeting).State = EntityState.Deleted;
+			_context.SaveChanges();
 		}
 
 		public void DeleteSubject(Subject subject)

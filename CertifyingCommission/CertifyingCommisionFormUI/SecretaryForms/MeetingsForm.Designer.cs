@@ -31,8 +31,11 @@
 			this.groupBoxMeetings = new System.Windows.Forms.GroupBox();
 			this.dataGridViewMeetings = new System.Windows.Forms.DataGridView();
 			this.groupBoxActions = new System.Windows.Forms.GroupBox();
+			this.buttonGetFile = new System.Windows.Forms.Button();
 			this.buttonReject = new System.Windows.Forms.Button();
 			this.buttonConfirm = new System.Windows.Forms.Button();
+			this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+			this.buttonDelete = new System.Windows.Forms.Button();
 			this.groupBoxMeetings.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewMeetings)).BeginInit();
 			this.groupBoxActions.SuspendLayout();
@@ -63,6 +66,8 @@
 			// 
 			// groupBoxActions
 			// 
+			this.groupBoxActions.Controls.Add(this.buttonDelete);
+			this.groupBoxActions.Controls.Add(this.buttonGetFile);
 			this.groupBoxActions.Controls.Add(this.buttonReject);
 			this.groupBoxActions.Controls.Add(this.buttonConfirm);
 			this.groupBoxActions.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -72,6 +77,16 @@
 			this.groupBoxActions.TabIndex = 1;
 			this.groupBoxActions.TabStop = false;
 			this.groupBoxActions.Text = "Actions";
+			// 
+			// buttonGetFile
+			// 
+			this.buttonGetFile.Location = new System.Drawing.Point(171, 13);
+			this.buttonGetFile.Name = "buttonGetFile";
+			this.buttonGetFile.Size = new System.Drawing.Size(75, 23);
+			this.buttonGetFile.TabIndex = 2;
+			this.buttonGetFile.Text = "Get File";
+			this.buttonGetFile.UseVisualStyleBackColor = true;
+			this.buttonGetFile.Click += new System.EventHandler(this.buttonGetFile_Click);
 			// 
 			// buttonReject
 			// 
@@ -94,6 +109,20 @@
 			this.buttonConfirm.Text = "Confirm";
 			this.buttonConfirm.UseVisualStyleBackColor = true;
 			this.buttonConfirm.Click += new System.EventHandler(this.buttonConfirm_Click);
+			// 
+			// saveFileDialog
+			// 
+			this.saveFileDialog.Filter = "\"Text files|*.txt|Doc files|*.doc|Docx files|*.docx\"";
+			// 
+			// buttonDelete
+			// 
+			this.buttonDelete.Location = new System.Drawing.Point(252, 13);
+			this.buttonDelete.Name = "buttonDelete";
+			this.buttonDelete.Size = new System.Drawing.Size(75, 23);
+			this.buttonDelete.TabIndex = 3;
+			this.buttonDelete.Text = "Delete";
+			this.buttonDelete.UseVisualStyleBackColor = true;
+			this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
 			// 
 			// MeetingsForm
 			// 
@@ -118,5 +147,8 @@
 		private System.Windows.Forms.GroupBox groupBoxActions;
 		private System.Windows.Forms.Button buttonReject;
 		private System.Windows.Forms.Button buttonConfirm;
+		private System.Windows.Forms.Button buttonGetFile;
+		private System.Windows.Forms.SaveFileDialog saveFileDialog;
+		private System.Windows.Forms.Button buttonDelete;
 	}
 }
