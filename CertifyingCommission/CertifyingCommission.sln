@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertifyingCommisionBl", "Ce
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertifyingCommisionFormUI", "CertifyingCommisionFormUI\CertifyingCommisionFormUI.csproj", "{B7CA9E6D-F6E4-4812-966B-4CE3D49D0B70}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinderExtensions", "FinderExtensions\FinderExtensions.csproj", "{344B357B-2D27-4821-AFCB-712BCC3FECC5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{B7CA9E6D-F6E4-4812-966B-4CE3D49D0B70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7CA9E6D-F6E4-4812-966B-4CE3D49D0B70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7CA9E6D-F6E4-4812-966B-4CE3D49D0B70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{344B357B-2D27-4821-AFCB-712BCC3FECC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{344B357B-2D27-4821-AFCB-712BCC3FECC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{344B357B-2D27-4821-AFCB-712BCC3FECC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{344B357B-2D27-4821-AFCB-712BCC3FECC5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,5 +56,6 @@ Global
 		{824BD755-84BF-41D3-8EF3-7B4B60EF66C9} = {6877952A-70BF-4742-B595-070AE747DBB6}
 		{34C1E31A-6FBA-49EC-B204-D63244EEFCAA} = {67D81601-3637-4EFA-B73A-3DB47C0ED1D5}
 		{B7CA9E6D-F6E4-4812-966B-4CE3D49D0B70} = {F0B1B5A5-B720-4BF8-A743-7A02A693F14C}
+		{344B357B-2D27-4821-AFCB-712BCC3FECC5} = {67D81601-3637-4EFA-B73A-3DB47C0ED1D5}
 	EndGlobalSection
 EndGlobal

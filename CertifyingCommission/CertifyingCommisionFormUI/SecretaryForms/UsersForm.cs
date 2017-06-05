@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using CertifyingCommisionBl;
 using CertifyingCommissionEntities;
+using FinderExtensions;
 
 namespace CertifyingCommisionFormUI.SecretaryForms
 {
@@ -14,6 +15,8 @@ namespace CertifyingCommisionFormUI.SecretaryForms
 
 		private readonly CertifyingCommission _certifyingCommision;
 		private readonly User _currentUser;
+
+		private bool _isFind;
 
 		public UsersForm(User user, CertifyingCommission certifyingCommission)
 		{
@@ -64,6 +67,22 @@ namespace CertifyingCommisionFormUI.SecretaryForms
 		}
 
 		private void UpdateData() =>
-			dataGridViewUsers.DataSource = GetUsers().ToList();
+			dataGridViewUsers.DataSource = _isFind ? GetUsers()
+													.Find(textBoxSurname.Text)
+													.OfType<TUser>()
+													.ToList() 
+			: GetUsers().ToList();
+
+		private void buttonFind_Click(object sender, EventArgs e)
+		{
+			_isFind = true;
+			UpdateData();
+		}
+
+		private void buttonCancel_Click(object sender, EventArgs e)
+		{
+			_isFind = false;
+			UpdateData();
+		}
 	}
 }

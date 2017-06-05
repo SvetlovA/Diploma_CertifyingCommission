@@ -34,18 +34,23 @@
 			this.buttonEdit = new System.Windows.Forms.Button();
 			this.buttonDelete = new System.Windows.Forms.Button();
 			this.buttonAdd = new System.Windows.Forms.Button();
+			this.groupBoxFinder = new System.Windows.Forms.GroupBox();
+			this.labelFinder = new System.Windows.Forms.Label();
+			this.textBoxSurname = new System.Windows.Forms.TextBox();
+			this.buttonFind = new System.Windows.Forms.Button();
+			this.buttonCancel = new System.Windows.Forms.Button();
 			this.groupBoxUsers.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
 			this.groupBoxActions.SuspendLayout();
+			this.groupBoxFinder.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// groupBoxUsers
 			// 
 			this.groupBoxUsers.Controls.Add(this.dataGridViewUsers);
-			this.groupBoxUsers.Dock = System.Windows.Forms.DockStyle.Top;
-			this.groupBoxUsers.Location = new System.Drawing.Point(0, 0);
+			this.groupBoxUsers.Location = new System.Drawing.Point(0, 62);
 			this.groupBoxUsers.Name = "groupBoxUsers";
-			this.groupBoxUsers.Size = new System.Drawing.Size(794, 332);
+			this.groupBoxUsers.Size = new System.Drawing.Size(794, 270);
 			this.groupBoxUsers.TabIndex = 0;
 			this.groupBoxUsers.TabStop = false;
 			this.groupBoxUsers.Text = "Secretaries";
@@ -59,7 +64,7 @@
 			this.dataGridViewUsers.Location = new System.Drawing.Point(3, 16);
 			this.dataGridViewUsers.Name = "dataGridViewUsers";
 			this.dataGridViewUsers.ReadOnly = true;
-			this.dataGridViewUsers.Size = new System.Drawing.Size(788, 313);
+			this.dataGridViewUsers.Size = new System.Drawing.Size(788, 251);
 			this.dataGridViewUsers.TabIndex = 0;
 			// 
 			// groupBoxActions
@@ -108,11 +113,62 @@
 			this.buttonAdd.UseVisualStyleBackColor = true;
 			this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
 			// 
+			// groupBoxFinder
+			// 
+			this.groupBoxFinder.Controls.Add(this.buttonCancel);
+			this.groupBoxFinder.Controls.Add(this.buttonFind);
+			this.groupBoxFinder.Controls.Add(this.textBoxSurname);
+			this.groupBoxFinder.Controls.Add(this.labelFinder);
+			this.groupBoxFinder.Dock = System.Windows.Forms.DockStyle.Top;
+			this.groupBoxFinder.Location = new System.Drawing.Point(0, 0);
+			this.groupBoxFinder.Name = "groupBoxFinder";
+			this.groupBoxFinder.Size = new System.Drawing.Size(794, 56);
+			this.groupBoxFinder.TabIndex = 2;
+			this.groupBoxFinder.TabStop = false;
+			this.groupBoxFinder.Text = "Finder";
+			// 
+			// labelFinder
+			// 
+			this.labelFinder.AutoSize = true;
+			this.labelFinder.Location = new System.Drawing.Point(7, 13);
+			this.labelFinder.Name = "labelFinder";
+			this.labelFinder.Size = new System.Drawing.Size(110, 13);
+			this.labelFinder.TabIndex = 0;
+			this.labelFinder.Text = "Input part of surname:";
+			// 
+			// textBoxSurname
+			// 
+			this.textBoxSurname.Location = new System.Drawing.Point(13, 30);
+			this.textBoxSurname.Name = "textBoxSurname";
+			this.textBoxSurname.Size = new System.Drawing.Size(155, 20);
+			this.textBoxSurname.TabIndex = 1;
+			// 
+			// buttonFind
+			// 
+			this.buttonFind.Location = new System.Drawing.Point(174, 28);
+			this.buttonFind.Name = "buttonFind";
+			this.buttonFind.Size = new System.Drawing.Size(75, 23);
+			this.buttonFind.TabIndex = 2;
+			this.buttonFind.Text = "Find";
+			this.buttonFind.UseVisualStyleBackColor = true;
+			this.buttonFind.Click += new System.EventHandler(this.buttonFind_Click);
+			// 
+			// buttonCancel
+			// 
+			this.buttonCancel.Location = new System.Drawing.Point(255, 28);
+			this.buttonCancel.Name = "buttonCancel";
+			this.buttonCancel.Size = new System.Drawing.Size(75, 23);
+			this.buttonCancel.TabIndex = 3;
+			this.buttonCancel.Text = "Cancel";
+			this.buttonCancel.UseVisualStyleBackColor = true;
+			this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+			// 
 			// UsersForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(794, 383);
+			this.Controls.Add(this.groupBoxFinder);
 			this.Controls.Add(this.groupBoxActions);
 			this.Controls.Add(this.groupBoxUsers);
 			this.Name = "UsersForm";
@@ -120,6 +176,8 @@
 			this.groupBoxUsers.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
 			this.groupBoxActions.ResumeLayout(false);
+			this.groupBoxFinder.ResumeLayout(false);
+			this.groupBoxFinder.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -132,5 +190,10 @@
 		private System.Windows.Forms.Button buttonEdit;
 		private System.Windows.Forms.Button buttonDelete;
 		private System.Windows.Forms.Button buttonAdd;
+		private System.Windows.Forms.GroupBox groupBoxFinder;
+		private System.Windows.Forms.Button buttonCancel;
+		private System.Windows.Forms.Button buttonFind;
+		private System.Windows.Forms.TextBox textBoxSurname;
+		private System.Windows.Forms.Label labelFinder;
 	}
 }

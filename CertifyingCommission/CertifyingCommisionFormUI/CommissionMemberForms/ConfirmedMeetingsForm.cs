@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows.Forms;
 using CertifyingCommisionBl;
 using CertifyingCommissionEntities;
+using FinderExtensions;
 
 namespace CertifyingCommisionFormUI.CommissionMemberForms
 {
@@ -14,6 +15,8 @@ namespace CertifyingCommisionFormUI.CommissionMemberForms
 		private readonly CertifyingCommission _certifyingCommission;
 		private readonly User _currentUser;
 
+		private bool _isFind;
+
 		public ConfirmedMeetingsForm(User user, CertifyingCommission certifyingCommission)
 		{
 			InitializeComponent();
@@ -23,7 +26,9 @@ namespace CertifyingCommisionFormUI.CommissionMemberForms
 		}
 
 		private void UpdateData() =>
-			dataGridViewMeetings.DataSource = _certifyingCommission.GetConfirmedMeetings().ToList();
+			dataGridViewMeetings.DataSource = _isFind
+				? _certifyingCommission.GetAllMeetings().Find(dateTimePickerFromDate.Value, dateTimePickerToDate.Value).ToList()
+				: _certifyingCommission.GetConfirmedMeetings().ToList();
 
 		private void buttonSetDate_Click(object sender, EventArgs e)
 		{
@@ -52,6 +57,18 @@ namespace CertifyingCommisionFormUI.CommissionMemberForms
 				throw new ArgumentNullException(nameof(row));
 
 			return (Meeting) row.DataBoundItem;
+		}
+
+		private void buttonFind_Click(object sender, EventArgs e)
+		{
+			_isFind = true;
+			UpdateData();
+		}
+
+		private void buttonCancel_Click(object sender, EventArgs e)
+		{
+			_isFind = false;
+			UpdateData();
 		}
 	}
 }

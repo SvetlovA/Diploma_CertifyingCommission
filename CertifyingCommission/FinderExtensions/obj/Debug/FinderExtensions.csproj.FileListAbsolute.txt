@@ -1,0 +1,10 @@
+C:\Users\Artem_Svetlov\Desktop\Diploma_CertifyingCommission\CertifyingCommission\FinderExtensions\bin\Debug\FinderExtensions.dll
+C:\Users\Artem_Svetlov\Desktop\Diploma_CertifyingCommission\CertifyingCommission\FinderExtensions\bin\Debug\FinderExtensions.pdb
+C:\Users\Artem_Svetlov\Desktop\Diploma_CertifyingCommission\CertifyingCommission\FinderExtensions\bin\Debug\CertifyingCommissionEntities.dll
+C:\Users\Artem_Svetlov\Desktop\Diploma_CertifyingCommission\CertifyingCommission\FinderExtensions\bin\Debug\EntityFramework.dll
+C:\Users\Artem_Svetlov\Desktop\Diploma_CertifyingCommission\CertifyingCommission\FinderExtensions\bin\Debug\CertifyingCommissionEntities.pdb
+C:\Users\Artem_Svetlov\Desktop\Diploma_CertifyingCommission\CertifyingCommission\FinderExtensions\bin\Debug\CertifyingCommissionEntities.dll.config
+C:\Users\Artem_Svetlov\Desktop\Diploma_CertifyingCommission\CertifyingCommission\FinderExtensions\bin\Debug\EntityFramework.xml
+C:\Users\Artem_Svetlov\Desktop\Diploma_CertifyingCommission\CertifyingCommission\FinderExtensions\obj\Debug\FinderExtensions.csprojResolveAssemblyReference.cache
+C:\Users\Artem_Svetlov\Desktop\Diploma_CertifyingCommission\CertifyingCommission\FinderExtensions\obj\Debug\FinderExtensions.dll
+C:\Users\Artem_Svetlov\Desktop\Diploma_CertifyingCommission\CertifyingCommission\FinderExtensions\obj\Debug\FinderExtensions.pdb

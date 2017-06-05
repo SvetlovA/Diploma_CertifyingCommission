@@ -119,7 +119,7 @@ namespace CertifyingCommisionBl
 		public void ClearNotActualMeetings()
 		{
 			var notActualMeetings = _certifyingCommissionDao.ReadNotActualMeetings();
-			foreach (var meeting in notActualMeetings)
+			foreach (var meeting in notActualMeetings.ToList())
 				_certifyingCommissionDao.DeleteMeeting(meeting);
 		}
 

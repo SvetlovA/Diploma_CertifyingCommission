@@ -39,7 +39,7 @@ namespace CertifyingCommisionFormUI.TeacherForms
 
 		private void ShowMeetings()
 		{
-			var meetingsForm = new MeetingsForm(_currentUser, _certifyingCommission);
+			var meetingsForm = new MeetingsForm(_certifyingCommission);
 			meetingsForm.Show();
 		}
 

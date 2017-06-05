@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using CertifyingCommisionBl;
 using CertifyingCommissionEntities;
+using FinderExtensions;
 
 namespace CertifyingCommisionFormUI.SecretaryForms
 {
@@ -17,6 +18,8 @@ namespace CertifyingCommisionFormUI.SecretaryForms
 
 		private readonly CertifyingCommission _certifyingCommision;
 		private readonly User _currentUser;
+
+		private bool _isFind;
 
 		public MeetingsForm(User user, CertifyingCommission certifyingCommision)
 		{
@@ -41,7 +44,7 @@ namespace CertifyingCommisionFormUI.SecretaryForms
 			var meeting = GetSelectedMeeting(dataGridViewMeetings.CurrentRow);
 			meeting.MeetingStatus = meetingStatus;
 			meeting.SecretaryId = _currentUser.UserId;
-			meeting.Secretary = (Secretary) _currentUser;
+			meeting.Secretary = (Secretary)_currentUser;
 			_certifyingCommision.UpdateMeeting(meeting);
 			UpdateData();
 		}
@@ -90,10 +93,24 @@ namespace CertifyingCommisionFormUI.SecretaryForms
 			if (row == null)
 				throw new ArgumentNullException(nameof(row));
 
-			return (Meeting) row.DataBoundItem;
+			return (Meeting)row.DataBoundItem;
 		}
 
 		private void UpdateData() =>
-			dataGridViewMeetings.DataSource = _certifyingCommision.GetAllMeetings().ToList();
+			dataGridViewMeetings.DataSource = _isFind
+				? _certifyingCommision.GetAllMeetings().Find(dateTimePickerFromDate.Value, dateTimePickerToDate.Value).ToList()
+				: _certifyingCommision.GetAllMeetings().ToList();
+
+		private void buttonFind_Click(object sender, EventArgs e)
+		{
+			_isFind = true;
+			UpdateData();
+		}
+
+		private void buttonCancel_Click(object sender, EventArgs e)
+		{
+			_isFind = false;
+			UpdateData();
+		}
 	}
 }

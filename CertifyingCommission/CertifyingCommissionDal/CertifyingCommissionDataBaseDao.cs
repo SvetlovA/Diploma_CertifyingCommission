@@ -8,7 +8,7 @@ namespace CertifyingCommissionDal
 {
 	public class CertifyingCommissionDataBaseDao : ICertifyingCommissionDao
 	{
-		private const int WeekLength = 1;
+		private const int WeekLength = 7;
 
 		private readonly CertifyingCommissionContext _context;
 
