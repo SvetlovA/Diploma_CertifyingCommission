@@ -9,20 +9,22 @@ namespace CertifyingCommisionFormUI.TeacherForms
 	public partial class MeetingsForm : Form
 	{
 		private readonly CertifyingCommission _certifyingCommision;
+		private readonly User _currentUser;
 
 		private bool _isFind;
 
-		public MeetingsForm(CertifyingCommission certifyingCommission)
+		public MeetingsForm(User user, CertifyingCommission certifyingCommission)
 		{
 			InitializeComponent();
 			_certifyingCommision = certifyingCommission;
+			_currentUser = user;
 			UpdateData();
 		}
 
 		private void UpdateData() =>
 			dataGridViewMeetings.DataSource = _isFind
-				? _certifyingCommision.GetAllMeetings().Find(dateTimePickerFromDate.Value, dateTimePickerToDate.Value).ToList()
-				: _certifyingCommision.GetAllMeetings().ToList();
+				? _certifyingCommision.GetTeacherMeetings(_currentUser).Find(dateTimePickerFromDate.Value, dateTimePickerToDate.Value).ToList()
+				: _certifyingCommision.GetTeacherMeetings(_currentUser).ToList();
 
 		private void buttonFind_Click(object sender, System.EventArgs e)
 		{
