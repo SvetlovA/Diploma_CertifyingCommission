@@ -84,7 +84,7 @@ namespace CertifyingCommisionFormUI.SecretaryForms
 			}
 		}
 
-		private static void TextBoxPassword_LostFocus(object sender, System.EventArgs e)
+		private static void TextBoxPassword_LostFocus(object sender, EventArgs e)
 		{
 			var textBoxPassword = (TextBox)sender;
 			if (!string.IsNullOrEmpty(textBoxPassword.Text))
@@ -93,7 +93,7 @@ namespace CertifyingCommisionFormUI.SecretaryForms
 				textBoxPassword.Text = EditPasswordMessage;
 		}
 
-		private static void TextBoxPassword_GotFocus(object sender, System.EventArgs e)
+		private static void TextBoxPassword_GotFocus(object sender, EventArgs e)
 		{
 			var textBoxPassword = (TextBox) sender;
 			if (!_isChangedPassword)
@@ -218,7 +218,7 @@ namespace CertifyingCommisionFormUI.SecretaryForms
 			if (IsValid)
 				DialogResult = DialogResult.OK;
 			else
-				MessageBox.Show(ValidationFailedTitle, ValidationFailedMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(ValidationFailedMessage, ValidationFailedTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 	}
 }
