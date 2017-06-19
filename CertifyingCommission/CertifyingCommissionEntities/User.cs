@@ -2,17 +2,41 @@
 
 namespace CertifyingCommissionEntities
 {
+	/// <summary>
+	/// User
+	/// </summary>
 	public class User
 	{
+		/// <summary>
+		/// User id
+		/// </summary>
 		[Browsable(false)]
 		public int UserId { get; set; }
+		/// <summary>
+		/// Login
+		/// </summary>
 		public string Login { get; set; }
+		/// <summary>
+		/// Password hash code
+		/// </summary>
 		[Browsable(false)]
 		public int PasswordHash { get; set; }
+		/// <summary>
+		/// Surname
+		/// </summary>
 		public string Surname { get; set; }
+		/// <summary>
+		/// Name
+		/// </summary>
 		public string Name { get; set; }
+		/// <summary>
+		/// Patronymic
+		/// </summary>
 		public string Patronymic { get; set; }
 
+		/// <summary>
+		/// Sault
+		/// </summary>
 		[Browsable(false)]
 		public Sault Sault { get; set; }
 

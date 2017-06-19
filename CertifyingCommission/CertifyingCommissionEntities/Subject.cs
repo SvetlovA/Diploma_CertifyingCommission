@@ -3,16 +3,31 @@ using System.ComponentModel;
 
 namespace CertifyingCommissionEntities
 {
+	/// <summary>
+	/// Subject
+	/// </summary>
 	public class Subject
 	{
+		/// <summary>
+		/// Constructor of subject
+		/// </summary>
 		public Subject()
 		{
 			Teachers = new List<Teacher>();
 		}
 
+		/// <summary>
+		/// Subject id
+		/// </summary>
 		[Browsable(false)]
 		public int SubjectId { get; set; }
+		/// <summary>
+		/// Subject name
+		/// </summary>
 		public string SubjectName { get; set; }
+		/// <summary>
+		/// Subject teachers
+		/// </summary>
 		[Browsable(false)]
 		public ICollection<Teacher> Teachers { get; set; }
 
